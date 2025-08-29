@@ -1,0 +1,31 @@
+[
+  {
+    "id": "company-settings",
+    "name": "Your Company Name",
+    "email": "hello@yourcompany.com",
+    "phone": "",
+    "website": "",
+    "taxNumber": "",
+    "address": {
+      "street": "",
+      "city": "",
+      "state": "",
+      "zipCode": "",
+      "country": "US"
+    },
+    "logo": "",
+    "currency": "USD",
+    "taxRate": 0,
+    "invoicePrefix": "INV",
+    "invoiceNumberStart": 1000,
+    "paymentTerms": "Net 30",
+    "notes": "Thank you for your business!",
+    "footer": "",
+    "theme": {
+      "primaryColor": "#9333ea",
+      "accentColor": "#a855f7"
+    },
+    "createdAt": "2025-08-29T05:04:44.866Z",
+    "updatedAt": "2025-08-29T05:04:44.866Z"
+  }
+]

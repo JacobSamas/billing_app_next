@@ -1,0 +1,23 @@
+[
+  {
+    "id": "demo-user",
+    "email": "demo@invoiceflow.com",
+    "password": "ZGVtbzEyM3NhbHQ=",
+    "firstName": "Demo",
+    "lastName": "User",
+    "role": "admin",
+    "company": "InvoiceFlow Demo",
+    "phone": "",
+    "avatar": "",
+    "createdAt": "2025-08-29T05:07:56.253Z",
+    "updatedAt": "2025-08-29T05:08:20.161Z",
+    "lastLogin": "2025-08-29T05:08:20.160Z",
+    "isActive": true,
+    "settings": {
+      "theme": "light",
+      "currency": "USD",
+      "language": "en",
+      "notifications": true
+    }
+  }
+]

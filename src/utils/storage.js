@@ -280,10 +280,11 @@ export const initializeDefaultData = async () => {
     const users = await usersStorage.read();
     if (users.length === 0) {
       const { createUser } = await import('../types/index.js');
+      const { hashPassword } = await import('./auth.js');
       await usersStorage.create(createUser({
         id: 'demo-user',
         email: 'demo@invoiceflow.com',
-        password: 'demo123', // In production, this should be hashed
+        password: hashPassword('demo123'),
         firstName: 'Demo',
         lastName: 'User',
         company: 'InvoiceFlow Demo',
