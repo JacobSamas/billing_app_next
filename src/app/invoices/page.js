@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
 import Button from '../../components/ui/Button';
 import LoadingSpinner from '../../components/ui/LoadingSpinner';
+import ExportModal from '../../components/export/ExportModal';
 
 export default function InvoicesPage() {
   const [invoices, setInvoices] = useState([]);
@@ -15,6 +16,7 @@ export default function InvoicesPage() {
     search: ''
   });
   const [pagination, setPagination] = useState({ page: 1, limit: 20, total: 0, totalPages: 0 });
+  const [showExportModal, setShowExportModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {

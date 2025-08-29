@@ -9,6 +9,7 @@ export default function DashboardPage() {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isGeneratingDemo, setIsGeneratingDemo] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -40,6 +41,36 @@ export default function DashboardPage() {
       setError(error.message);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const generateDemoData = async () => {
+    setIsGeneratingDemo(true);
+    try {
+      const token = localStorage.getItem('authToken');
+      const response = await fetch('/api/demo/generate', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        // Show success message
+        alert(`🎉 Demo data generated successfully!\n\n📊 Created:\n• ${data.data.customers} customers\n• ${data.data.invoices} invoices\n• ${data.data.payments} payments\n• $${data.data.totalRevenue.toLocaleString()} total revenue`);
+        
+        // Refresh dashboard data
+        fetchDashboardStats();
+      } else {
+        alert('Failed to generate demo data: ' + data.error);
+      }
+    } catch (error) {
+      console.error('Demo data generation error:', error);
+      alert('Failed to generate demo data. Please try again.');
+    } finally {
+      setIsGeneratingDemo(false);
     }
   };
 
@@ -108,9 +139,36 @@ export default function DashboardPage() {
     <DashboardLayout>
       <div className="space-y-6">
         {/* Header */}
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1">Welcome back! Here's your business overview.</p>
+        <div className="flex justify-between items-start">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+            <p className="text-gray-600 mt-1">Welcome back! Here's your business overview.</p>
+          </div>
+          
+          {/* Demo Data Generator */}
+          {stats?.overview.totalInvoices === 0 && (
+            <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-4 text-white shadow-lg">
+              <h3 className="font-semibold mb-2">🎭 Try Demo Data!</h3>
+              <p className="text-sm mb-3 opacity-90">See how amazing your app looks with realistic business data</p>
+              <button
+                onClick={generateDemoData}
+                disabled={isGeneratingDemo}
+                className="bg-white text-purple-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors disabled:opacity-50 text-sm flex items-center"
+              >
+                {isGeneratingDemo ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Generating...
+                  </>
+                ) : (
+                  '✨ Generate Demo Data'
+                )}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Stats Cards */}

@@ -89,19 +89,51 @@
 }
 
 /* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-50: #0f172a;
-    --primary-100: #1e293b;
-    --primary-200: #334155;
-    --primary-300: #475569;
-    --primary-400: #64748b;
-    --primary-500: #94a3b8;
-    --primary-600: #cbd5e1;
-    --primary-700: #e2e8f0;
-    --primary-800: #f1f5f9;
-    --primary-900: #f8fafc;
-  }
+.dark {
+  --primary-50: #0f172a;
+  --primary-100: #1e293b;
+  --primary-200: #334155;
+  --primary-300: #475569;
+  --primary-400: #64748b;
+  --primary-500: #94a3b8;
+  --primary-600: #cbd5e1;
+  --primary-700: #e2e8f0;
+  --primary-800: #f1f5f9;
+  --primary-900: #f8fafc;
+}
+
+/* Dark mode class-based overrides */
+.dark body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.dark .card {
+  @apply bg-slate-800 border-slate-700 text-slate-100;
+}
+
+.dark .form-input {
+  @apply bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-400;
+}
+
+.dark .form-input:focus {
+  @apply ring-purple-400 border-purple-400;
+}
+
+.dark .form-label {
+  @apply text-slate-300;
+}
+
+.dark .btn-secondary {
+  @apply bg-slate-700 hover:bg-slate-600 text-slate-100 border-slate-600;
+}
+
+/* Dark mode gradient adjustments */
+.dark .gradient-text {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Base Styles */

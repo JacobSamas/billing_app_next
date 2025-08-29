@@ -5,11 +5,17 @@ import { useRouter, useParams } from 'next/navigation';
 import DashboardLayout from '../../../components/dashboard/DashboardLayout';
 import Button from '../../../components/ui/Button';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
+import EmailInvoiceModal from '../../../components/invoice/EmailInvoiceModal';
+import RecordPaymentModal from '../../../components/payment/RecordPaymentModal';
+import { downloadInvoicePDF, printInvoice } from '../../../utils/pdfGenerator';
+import emailService from '../../../utils/emailService';
 
 export default function InvoiceDetailPage() {
   const [invoice, setInvoice] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
   const router = useRouter();
   const params = useParams();
   const invoiceId = params.id;
@@ -209,6 +215,58 @@ export default function InvoiceDetailPage() {
           </div>
           
           <div className="flex items-center space-x-3">
+            {/* PDF Actions */}
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => downloadInvoicePDF(invoice)}
+              title="Download PDF"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              PDF
+            </Button>
+            
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => printInvoice(invoice)}
+              title="Print Invoice"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Print
+            </Button>
+            
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={() => setShowEmailModal(true)}
+              title="Email Invoice"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email
+            </Button>
+            
+            {invoice.status !== 'paid' && invoice.amountDue > 0 && (
+              <Button
+                variant="success"
+                size="sm"
+                onClick={() => setShowPaymentModal(true)}
+                title="Record Payment"
+              >
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+                Record Payment
+              </Button>
+            )}
+
+            {/* Status Actions */}
             {statusActions.map((action) => (
               <Button
                 key={action.status}
@@ -219,6 +277,7 @@ export default function InvoiceDetailPage() {
                 {action.label}
               </Button>
             ))}
+            
             {invoice.status === 'draft' && (
               <Button
                 variant="danger"
@@ -380,6 +439,24 @@ export default function InvoiceDetailPage() {
             </div>
           </div>
         </div>
+        
+        {/* Email Modal */}
+        <EmailInvoiceModal 
+          invoice={invoice}
+          isOpen={showEmailModal}
+          onClose={() => setShowEmailModal(false)}
+        />
+        
+        {/* Payment Modal */}
+        <RecordPaymentModal 
+          invoice={invoice}
+          isOpen={showPaymentModal}
+          onClose={() => setShowPaymentModal(false)}
+          onPaymentRecorded={() => {
+            setShowPaymentModal(false);
+            fetchInvoice();
+          }}
+        />
       </div>
     </DashboardLayout>
   );
