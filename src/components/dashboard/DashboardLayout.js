@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import ThemeToggle from '../ui/ThemeToggle';
+// import ThemeToggle from '../ui/ThemeToggle';
 
 export default function DashboardLayout({ children }) {
   const [user, setUser] = useState(null);
@@ -181,7 +181,7 @@ export default function DashboardLayout({ children }) {
             </button>
 
             <div className="flex items-center space-x-4">
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               
               <span className="text-sm text-gray-500 dark:text-slate-400">
                 {new Date().toLocaleDateString('en-US', { 

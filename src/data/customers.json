@@ -1,0 +1,234 @@
+[
+  {
+    "id": "1756446667778k46jegh17",
+    "name": "Sarah Johnson",
+    "email": "sarah@techstart.com",
+    "phone": "+1 (555) 123-4567",
+    "company": "TechStart Solutions",
+    "website": "https://techstart.com",
+    "taxNumber": "",
+    "address": {
+      "street": "123 Innovation Drive",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94105",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "123 Innovation Drive",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94105",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.778Z",
+    "updatedAt": "2025-08-29T05:51:07.778Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667781krpwbn703",
+    "name": "Michael Chen",
+    "email": "mike@digitalmarketingpro.com",
+    "phone": "+1 (555) 234-5678",
+    "company": "Digital Marketing Pro",
+    "website": "https://digitalmarketingpro.com",
+    "taxNumber": "",
+    "address": {
+      "street": "456 Market Street",
+      "city": "Austin",
+      "state": "TX",
+      "zipCode": "78701",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "456 Market Street",
+      "city": "Austin",
+      "state": "TX",
+      "zipCode": "78701",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.779Z",
+    "updatedAt": "2025-08-29T05:51:07.781Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667785cyaa8emx9",
+    "name": "Emma Rodriguez",
+    "email": "emma@creativedesign.co",
+    "phone": "+1 (555) 345-6789",
+    "company": "Creative Design Studio",
+    "website": "https://creativedesign.co",
+    "taxNumber": "",
+    "address": {
+      "street": "789 Art District Blvd",
+      "city": "Portland",
+      "state": "OR",
+      "zipCode": "97205",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "789 Art District Blvd",
+      "city": "Portland",
+      "state": "OR",
+      "zipCode": "97205",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.783Z",
+    "updatedAt": "2025-08-29T05:51:07.785Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667790x89in3le2",
+    "name": "David Kim",
+    "email": "david@cloudops.io",
+    "phone": "+1 (555) 456-7890",
+    "company": "CloudOps Engineering",
+    "website": "https://cloudops.io",
+    "taxNumber": "",
+    "address": {
+      "street": "321 Tech Park Way",
+      "city": "Seattle",
+      "state": "WA",
+      "zipCode": "98101",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "321 Tech Park Way",
+      "city": "Seattle",
+      "state": "WA",
+      "zipCode": "98101",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.787Z",
+    "updatedAt": "2025-08-29T05:51:07.790Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667794l5k20pard",
+    "name": "Lisa Wang",
+    "email": "lisa@ecommerceboost.com",
+    "phone": "+1 (555) 567-8901",
+    "company": "E-commerce Boost",
+    "website": "https://ecommerceboost.com",
+    "taxNumber": "",
+    "address": {
+      "street": "654 Commerce Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "654 Commerce Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.793Z",
+    "updatedAt": "2025-08-29T05:51:07.794Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667798j6vth25kb",
+    "name": "James Thompson",
+    "email": "james@legalconsulting.com",
+    "phone": "+1 (555) 678-9012",
+    "company": "Legal Consulting Group",
+    "website": "",
+    "taxNumber": "",
+    "address": {
+      "street": "987 Law Center Plaza",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "987 Law Center Plaza",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.795Z",
+    "updatedAt": "2025-08-29T05:51:07.798Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667801yo08ttzml",
+    "name": "Maria Gonzalez",
+    "email": "maria@healthwellness.com",
+    "phone": "+1 (555) 789-0123",
+    "company": "Health & Wellness Co",
+    "website": "https://healthwellness.com",
+    "taxNumber": "",
+    "address": {
+      "street": "147 Wellness Blvd",
+      "city": "Miami",
+      "state": "FL",
+      "zipCode": "33101",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "147 Wellness Blvd",
+      "city": "Miami",
+      "state": "FL",
+      "zipCode": "33101",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.800Z",
+    "updatedAt": "2025-08-29T05:51:07.801Z",
+    "userId": "demo-user"
+  },
+  {
+    "id": "1756446667804i7bw44jgk",
+    "name": "Alex Turner",
+    "email": "alex@finadvisory.com",
+    "phone": "+1 (555) 890-1234",
+    "company": "Financial Advisory Partners",
+    "website": "",
+    "taxNumber": "",
+    "address": {
+      "street": "258 Wall Street",
+      "city": "Boston",
+      "state": "MA",
+      "zipCode": "02101",
+      "country": "US"
+    },
+    "billingAddress": {
+      "street": "258 Wall Street",
+      "city": "Boston",
+      "state": "MA",
+      "zipCode": "02101",
+      "country": "US"
+    },
+    "notes": "",
+    "tags": [],
+    "isActive": true,
+    "createdAt": "2025-08-29T05:51:07.803Z",
+    "updatedAt": "2025-08-29T05:51:07.804Z",
+    "userId": "demo-user"
+  }
+]

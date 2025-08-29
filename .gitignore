@@ -39,8 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-src/data/customers.json
-src/data/users.json
-src/data/users.json
-src/data/invoices.json
-src/data/payments.json
+
+# Note: Demo data files (src/data/*.json) are included for demonstration purposes
