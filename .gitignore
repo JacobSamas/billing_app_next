@@ -42,3 +42,5 @@ next-env.d.ts
 src/data/customers.json
 src/data/users.json
 src/data/users.json
+src/data/invoices.json
+src/data/payments.json

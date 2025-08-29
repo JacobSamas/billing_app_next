@@ -12,12 +12,12 @@ export default function Button({
   const baseClasses = 'font-semibold rounded-lg transition-all duration-200 inline-flex items-center justify-center';
   
   const variantClasses = {
-    primary: 'bg-purple-600 hover:bg-purple-700 text-white shadow-md hover:shadow-lg',
-    secondary: 'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300',
-    success: 'bg-green-600 hover:bg-green-700 text-white',
-    danger: 'bg-red-600 hover:bg-red-700 text-white',
-    outline: 'border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white',
-    ghost: 'text-gray-600 hover:bg-gray-100'
+    primary: 'btn-primary',
+    secondary: 'btn-secondary', 
+    success: 'btn-success',
+    danger: 'btn-danger',
+    outline: 'outline border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white',
+    ghost: 'ghost text-gray-600 hover:bg-gray-100'
   };
 
   const sizeClasses = {

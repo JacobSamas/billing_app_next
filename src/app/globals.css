@@ -102,31 +102,9 @@
   --primary-900: #f8fafc;
 }
 
-/* Dark mode class-based overrides */
-.dark body {
-  background-color: #0f172a;
-  color: #f1f5f9;
-}
+/* Dark mode class-based overrides removed - now handled in base styles */
 
-.dark .card {
-  @apply bg-slate-800 border-slate-700 text-slate-100;
-}
 
-.dark .form-input {
-  @apply bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-400;
-}
-
-.dark .form-input:focus {
-  @apply ring-purple-400 border-purple-400;
-}
-
-.dark .form-label {
-  @apply text-slate-300;
-}
-
-.dark .btn-secondary {
-  @apply bg-slate-700 hover:bg-slate-600 text-slate-100 border-slate-600;
-}
 
 /* Dark mode gradient adjustments */
 .dark .gradient-text {
@@ -148,8 +126,13 @@ html {
 body {
   font-family: var(--font-family-sans);
   line-height: 1.6;
-  color: var(--primary-800);
-  background-color: var(--primary-50);
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+.dark body {
+  color: #f1f5f9;
+  background-color: #0f172a;
 }
 
 /* Custom Utilities */
@@ -181,22 +164,38 @@ body {
   }
 }
 
-/* Form Styles */
+/* Form Styles - Light mode first */
 .form-input {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm;
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm text-gray-900;
+}
+
+.dark .form-input {
+  @apply bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-400;
+}
+
+.dark .form-input:focus {
+  @apply ring-purple-400 border-purple-400;
 }
 
 .form-label {
   @apply block text-sm font-semibold text-gray-700 mb-2;
 }
 
-/* Button Styles */
+.dark .form-label {
+  @apply text-slate-300;
+}
+
+/* Button Styles - Light mode first */
 .btn-primary {
   @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg active:transform active:scale-95;
 }
 
 .btn-secondary {
   @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-all duration-200 border border-gray-300;
+}
+
+.dark .btn-secondary {
+  @apply bg-slate-700 hover:bg-slate-600 text-slate-100 border-slate-600;
 }
 
 .btn-success {
@@ -207,26 +206,57 @@ body {
   @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md transition-all duration-200;
 }
 
-/* Card Styles */
+/* Card Styles - Light mode first */
 .card {
   @apply bg-white rounded-xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-200;
 }
 
-/* Status Badges */
+.dark .card {
+  @apply bg-slate-800 border-slate-700 shadow-slate-900/20;
+}
+
+/* Additional button variants for dark mode */
+.dark .btn-outline,
+.dark .outline {
+  @apply border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white;
+}
+
+.dark .btn-ghost,
+.dark .ghost {
+  @apply text-slate-300 hover:bg-slate-700;
+}
+
+/* Status Badges - Light mode first, then dark overrides */
 .badge-success {
   @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800;
+}
+
+.dark .badge-success {
+  @apply bg-green-900 text-green-200;
 }
 
 .badge-warning {
   @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800;
 }
 
+.dark .badge-warning {
+  @apply bg-yellow-900 text-yellow-200;
+}
+
 .badge-error {
   @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800;
 }
 
+.dark .badge-error {
+  @apply bg-red-900 text-red-200;
+}
+
 .badge-info {
   @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+}
+
+.dark .badge-info {
+  @apply bg-blue-900 text-blue-200;
 }
 
 /* Scrollbar Styles */
@@ -251,4 +281,61 @@ body {
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: var(--accent-400);
+}
+
+/* Additional Dark Mode Fixes */
+.dark .glass-effect {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+/* Table improvements for dark mode */
+.dark table {
+  @apply text-slate-100;
+}
+
+.dark th {
+  @apply text-slate-200 border-slate-600;
+}
+
+.dark td {
+  @apply text-slate-300 border-slate-700;
+}
+
+/* Link improvements */
+.dark a {
+  @apply text-purple-400;
+}
+
+.dark a:hover {
+  @apply text-purple-300;
+}
+
+/* Loading spinner improvements */
+.dark .animate-spin {
+  border-color: rgb(148 163 184);
+  border-bottom-color: rgb(168 85 247);
+}
+
+/* Modal and overlay improvements */
+.dark .bg-black\\/50 {
+  @apply bg-slate-900/80;
+}
+
+/* Input focus improvements for dark mode */
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  @apply ring-purple-400/75 border-purple-400;
+}
+
+/* Disabled state improvements */
+.dark input:disabled,
+.dark textarea:disabled,
+.dark select:disabled {
+  @apply bg-slate-800 text-slate-500 border-slate-600;
+}
+
+.dark button:disabled {
+  @apply bg-slate-700 text-slate-500;
 }
